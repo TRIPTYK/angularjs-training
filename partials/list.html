@@ -1,0 +1,45 @@
+<section class="restaurantsPage">
+	<nav>
+		<input type="text" placeholder="Rechercher un restaurant" ng-model="query">
+		Ordonner par&nbsp;:&nbsp;
+		<select ng-model="restaurantOrder">
+			<option value="name">Nom</option>
+			<option value="address.city">Ville</option>
+		</select>
+		<label><input type="radio" ng-model="direction" name="direction"> croissant</label>
+		<label><input type="radio" ng-model="direction" name="direction" value="reverse"> décroissant</label>
+
+		<a href="#/add" class="btn">Ajouter un restaurant</a>
+	</nav>
+	
+	<div class="addRestaurant">
+		<form id="form-addRestaurant">
+			
+		</form>
+	</div>
+
+	<article ng-repeat="restaurant in restaurants | filter : {name :query } | orderBy: restaurantOrder:direction" class="cf">
+		<h3><a href="#/details/{{restaurants.indexOf(restaurant)}}">{{restaurant.name}}</a></h3>
+		<div>
+			<a href="#/details/{{restaurants.indexOf(restaurant)}}"><img ng-src="images/{{restaurant.photo}}.png" alt="{{restaurant.name}}" width="150" height="150" /></a>
+			<!-- <img ng-click="showMore()" ng-src="images/{{restaurant.photo}}.png" alt="{{restaurant.name}}" width="150" height="150" /> -->
+			<p><strong>Note :</strong> {{restaurant.rating}}</p>
+		</div>
+		<!-- <ul ng-hide="hide"> -->
+		<ul>
+			<li><strong>Téléphone :</strong> {{restaurant.phone}}</li>
+			<li><strong>Site Web :</strong> {{restaurant.web}}</li>
+			<li><strong>Type de cuisine :</strong>
+				<ul>
+					<li ng-repeat="type in restaurant.types">{{type}}</li>
+				</ul>
+			</li>
+			<li><strong>Adresse :</strong>
+				<ul>
+					<li>{{restaurant.address.street}} {{restaurant.address.number}}</li>
+					<li>{{restaurant.address.zip}}, {{restaurant.address.city}}</li>
+				</ul>
+			</li>
+		</ul>
+	</article>
+</section>

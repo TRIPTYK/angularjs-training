@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+	<meta charset="UTF-8">
+	<title>Liste des restaurants</title>
+	<link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet' type='text/css'>
+	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<script src="lib/angular/angular.min.js"></script>
+	<script src="lib/angular/angular-route.min.js"></script>
+	<script src="lib/angular/angular-animate.min.js"></script>
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/controllers.js"></script>
+</head>
+<body ng-app="app">
+
+	<div class="container" >
+		<h1>Les restaurants</h1>
+
+		<!-- <section ng-controller="ListController"> à retirer quand on place les routes parce que chaque view utilise son propre controller -->
+		<section ng-view>
+
+			<!-- //on supprime tout ça, quand on utilise les routes, car chaque template possède son HTML
+
+
+			<nav>
+				<input type="text" placeholder="Rechercher un restaurant" ng-model="query">
+				Ordonner par&nbsp;:&nbsp;
+				<select ng-model="restaurantOrder">
+					<option value="name">Nom</option>
+					<option value="address.city">Ville</option>
+				</select>
+				<label><input type="radio" ng-model="direction" name="direction"> croissant</label>
+				<label><input type="radio" ng-model="direction" name="direction" value="reverse"> décroissant</label>
+			</nav>
+			
+			<article ng-repeat="restaurant in restaurants | filter : query | orderBy: restaurantOrder:direction" class="cf">
+				<h3>{{restaurant.name}}</h3>
+				<div>
+					<img ng-src="images/{{restaurant.photo}}.png" alt="{{restaurant.name}}" width="150" height="150" />
+					<p><strong>Note :</strong> {{restaurant.rating}}</p>
+				</div>
+				<ul>
+					<li><strong>Téléphone :</strong> {{restaurant.phone}}</li>
+					<li><strong>Site Web :</strong> {{restaurant.web}}</li>
+					<li><strong>Type de cuisine :</strong>
+						<ul>
+							<li ng-repeat="type in restaurant.types">{{type}}</li>
+						</ul>
+					</li>
+					<li><strong>Adresse :</strong>
+						<ul>
+							<li>{{restaurant.address.street}} {{restaurant.address.number}}</li>
+							<li>{{restaurant.address.zip}}, {{restaurant.address.city}}</li>
+						</ul>
+					</li>
+				</ul>
+			</article> -->
+
+		</section>
+		
+	</div>
+
+	
+</body>
+</html>

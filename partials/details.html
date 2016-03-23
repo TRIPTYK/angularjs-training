@@ -1,0 +1,25 @@
+<section class="detailsPage" ng-model="restaurants">
+	<a href="#/details/{{prevItem}}" class="btn">&lt;</a>
+	<a href="#/details/{{nextItem}}" class="btn">&gt;</a>
+	<h3>{{restaurants[whichItem].name}}</h3>
+	<div>
+		<img ng-src="images/{{restaurants[whichItem].photo}}.png" alt="{{restaurants[whichItem].name}}" width="150" height="150" />
+		<p><strong>Note :</strong> {{restaurants[whichItem].rating}}</p>
+	</div>
+	<ul>
+		<li><strong>Téléphone :</strong> {{restaurants[whichItem].phone}}</li>
+		<li><strong>Site Web :</strong> {{restaurants[whichItem].web}}</li>
+		<li><strong>Type de cuisine :</strong>
+			<ul>
+				<li ng-repeat="type in restaurants[whichItem].types">{{type}}</li>
+			</ul>
+		</li>
+		<li><strong>Adresse :</strong>
+			<ul>
+				<li>{{restaurants[whichItem].address.street}} {{restaurants[whichItem].address.number}}</li>
+				<li>{{restaurants[whichItem].address.zip}}, {{restaurants[whichItem].address.city}}</li>
+			</ul>
+		</li>
+	</ul>
+	<a href="index.html" class="btn">Retour</a>
+</section>
